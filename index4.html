@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4</title>
+    <style>
+        /* Estilo para colocar a imagem à esquerda e o texto ao lado */
+        img {
+            float: left;
+            margin-right: 20px;
+        }
+
+        /* Garante que o layout fique organizado */
+        .conteudo {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="conteudo">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" width="150">
+
+        <h1>Qual o Maior Número?</h1>
+        
+        <p>Primeiro Número: 
+            <input type="number" id="inNum1">
+        </p>
+        <p>Segundo Número: 
+            <input type="number" id="inNum2">
+        </p>
+        <p>Terceiro Número: 
+            <input type="number" id="inNum3">
+        </p>
+        
+        <input type="button" value="Verificar Maior" onclick="verificarMaior()">
+
+        <h2 id="outResultado"></h2>
+    </div>
+
+    <script>
+        function verificarMaior() {
+            var n1 = Number(document.getElementById("inNum1").value);
+            var n2 = Number(document.getElementById("inNum2").value);
+            var n3 = Number(document.getElementById("inNum3").value);
+            var out = document.getElementById("outResultado");
+
+            if (document.getElementById("inNum1").value == "" || 
+                document.getElementById("inNum2").value == "" || 
+                document.getElementById("inNum3").value == "") {
+                alert("Ei, preenche todos os campos aí!");
+                return;
+            }
+
+            var maior;
+
+            if (n1 >= n2 && n1 >= n3) {
+                maior = n1;
+            } else if (n2 >= n1 && n2 >= n3) {
+                maior = n2;
+            } else {
+                maior = n3;
+            }
+
+            out.textContent = "O maior número é: " + maior;
+        }
+    </script>
+</body>
+</html>

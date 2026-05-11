@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício Escola - Notas</title>
+    <style>
+        img {
+            float: left;
+            margin-right: 25px;
+        }
+
+        .container {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" width="150">
+
+        <h1>Programa Verificador de Notas</h1>
+        
+        <p>Nota do Aluno: 
+            <input type="text" id="inNota">
+        </p>
+        
+        <input type="button" value="Verificar Situação" onclick="verificarSituacao()">
+
+        <h2 id="outSituacao"></h2>
+    </div>
+
+    <script>
+        function verificarSituacao() {
+            var nota = Number(document.getElementById("inNota").value);
+            var out = document.getElementById("outSituacao");
+
+            if (document.getElementById("inNota").value == "" || isNaN(nota)) {
+                alert("Digite uma nota válida!");
+                return;
+            }
+
+            if (nota >= 6) {
+                out.textContent = "Situação: Aprovado";
+            } else if (nota >= 4) {
+                out.textContent = "Situação: Recuperação";
+            } else {
+                out.textContent = "Situação: Reprovado";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - Triângulos</title>
+    <style>
+        img {
+            float: left;
+            margin-right: 25px;
+        }
+
+        .container {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" width="150">
+
+        <h1>Programa Lados de um Triângulo</h1>
+        
+        <p>Lado A: 
+            <input type="text" id="inLadoA">
+        </p>
+        <p>Lado B: 
+            <input type="text" id="inLadoB">
+        </p>
+        <p>Lado C: 
+            <input type="text" id="inLadoC">
+        </p>
+        
+        <input type="button" value="Verificar Lados" onclick="verificarTriangulo()">
+
+        <h3 id="outSim"></h3>
+        <h3 id="outTipo"></h3>
+    </div>
+
+    <script>
+        function verificarTriangulo() {
+            var inA = document.getElementById("inLadoA");
+            var inB = document.getElementById("inLadoB");
+            var inC = document.getElementById("inLadoC");
+            var outSim = document.getElementById("outSim");
+            var outTipo = document.getElementById("outTipo");
+
+            var a = Number(inA.value);
+            var b = Number(inB.value);
+            var c = Number(inC.value);
+
+            if (a <= 0 || b <= 0 || c <= 0 || isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert("Por favor, informe números válidos para os lados.");
+                inA.focus();
+                return;
+            }
+
+            if (a > b + c || b > a + c || c > a + b) {
+                outSim.textContent = "Lados não podem formar um triângulo";
+                outTipo.textContent = "";
+            } else {
+                outSim.textContent = "Lados podem formar um triângulo";
+                
+                if (a == b && b == c) {
+                    outTipo.textContent = "Tipo: Equilátero";
+                } else if (a == b || a == c || b == c) {
+                    outTipo.textContent = "Tipo: Isósceles";
+                } else {
+                    outTipo.textContent = "Tipo: Escaleno";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

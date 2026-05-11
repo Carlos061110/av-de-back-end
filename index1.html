@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 1</title>
+    <style>
+        /* Estilo para alinhar a imagem à esquerda */
+        img {
+            float: left;
+            margin-right: 25px;
+        }
+
+        /* Container para organizar o conteúdo ao lado da imagem */
+        .container {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" width="150">
+        
+        <h1>Programa Par ou Ímpar</h1>
+        
+        <p>Número: <input type="number" id="inNumero"></p>
+        
+        <button onclick="verificar()">Verificar se é Par ou Ímpar</button>
+        
+        <h3 id="outResposta"></h3>
+    </div>
+
+    <script>
+        function verificar() {
+            var num = document.getElementById('inNumero').value;
+            var out = document.getElementById('outResposta');
+
+            if (num === "") {
+                alert("Digite um número!");
+                return;
+            }
+
+            if (Number(num) % 2 == 0) {
+                out.textContent = "Resposta: " + num + " é Par";
+            } else {
+                out.textContent = "Resposta: " + num + " é Ímpar";
+            }
+        }
+    </script>
+
+</body>
+</html>

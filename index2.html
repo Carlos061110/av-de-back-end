@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2</title>
+    <style>
+        img {
+            float: left;
+            margin-right: 25px;
+        }
+
+        .container {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" width="150">
+
+        <h1>Programa Verifica Velocidade</h1>
+        
+        <p>Velocidade Permitida: 
+            <input type="text" id="inPermitida">
+        </p>
+        <p>Velocidade do Condutor: 
+            <input type="text" id="inCondutor">
+        </p>
+        
+        <input type="button" value="Verificar Velocidade" onclick="calcular()">
+
+        <h2 id="outSituacao"></h2>
+    </div>
+
+    <script>
+        function calcular() {
+            var vPermitida = Number(document.getElementById("inPermitida").value);
+            var vCondutor = Number(document.getElementById("inCondutor").value);
+            var out = document.getElementById("outSituacao");
+
+            if (vPermitida == 0 || isNaN(vPermitida) || vCondutor == 0 || isNaN(vCondutor)) {
+                alert("Por favor, informe as velocidades corretamente.");
+                return;
+            }
+
+            var limiteLeve = vPermitida * 1.20;
+
+            if (vCondutor <= vPermitida) {
+                out.textContent = "Situação: Sem Multa";
+            } 
+            else if (vCondutor <= limiteLeve) {
+                out.textContent = "Situação: Multa Leve";
+            } 
+            else {
+                out.textContent = "Situação: Multa Grave";
+            }
+        }
+    </script>
+</body>
+</html>
